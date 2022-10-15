@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vanielson/widgets/portfolio_card.dart';
 
 void main() {
   runApp(const MyApp());
@@ -63,14 +64,100 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            Text(
-              'You are in Vanielson-verse!'
-            ),
-          ],
+      body: SingleChildScrollView(
+        child: SizedBox(
+          width: (MediaQuery.of(context).size.width),
+          height: (MediaQuery.of(context).size.height * 1),
+          child: Stack(
+            children: [
+              Opacity(
+                opacity: .8,
+                //child: VideoFullScreen(videoURL: videoURLTemp, videoConfiguration: 5),
+                child: Container(
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('images/dojo-bedroom-03.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              )
+              Center(
+                child: SizedBox(
+                  width: 400,
+                  child: Column(
+                    // mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      const SizedBox(height:48),
+                      Text(
+                        'Vanielson',
+                        style: Theme.of(context).textTheme.headline3,
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height:16),
+                      const Text(
+                          'Product strategy, product designer, software engineer, operations, and execution assassin.', textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height:16),
+
+                      /// Buttons
+
+                      SizedBox(
+                        width: 200,
+                        height: 48,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
+                          ),
+                          onPressed: () {
+                            print('tap');
+                          },
+                          child: const Text('LinkedIn'),
+                        ),
+                      ),
+                      const SizedBox(height:8),
+                      SizedBox(
+                        width: 200,
+                        height: 48,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
+                          ),
+                          onPressed: () {
+                            print('tap');
+                          },
+                          child: const Text('Github'),
+                        ),
+                      ),
+                      const SizedBox(height:8),
+                      SizedBox(
+                        width: 200,
+                        height: 48,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
+                          ),
+                          onPressed: () {
+                            print('tap');
+                          },
+                          child: const Text('Twitter'),
+                        ),
+                      ),
+
+                      const SizedBox(height: 100),
+
+                      /// First portfolio container
+                      const SizedBox(
+                          width: 400,
+                          child: PortfolioCard(title: 'Dojo', subtitle: 'A web3 fitness game', myRole: 'Product Manager')),
+
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       /*floatingActionButton: FloatingActionButton(
