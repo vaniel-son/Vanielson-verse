@@ -20,7 +20,7 @@ class PortfolioCard2 extends StatelessWidget {
     this.buttonThree = false,
     this.buttonThreeTitle = 'title',
     this.buttonThreePressAction,
-    this.cardIcon = 'van_mask_square_large.png',
+    this.cardIcon = 'vanielson_mask_01.jpg',
     this.backgroundImage = 'dojo_background_02.jpg',
 
     Key? key,

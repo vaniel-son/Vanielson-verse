@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Container(
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('images/cloud_house_03.png'),
+                    image: AssetImage('images/cloud_house_04.jpg'),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -82,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         const SizedBox(height:48),
                         const CircleAvatar(
                           radius: 75,
-                          backgroundImage: AssetImage('assets/images/van_mask_square_large.png'),
+                          backgroundImage: AssetImage('assets/images/vanielson_mask_01.jpg'),
                         ),
                         verticalRiser(context: context, multiplier: 1),
                         Image.asset(
@@ -225,12 +225,12 @@ class _MyHomePageState extends State<MyHomePage> {
                         /// portfolio container
                         SizedBox(
                           width: 400,
-                          child: PortfolioCard(title: 'Short Films', subtitle: 'Films I made in NYC',
+                          child: PortfolioCard(title: 'Short Films', subtitle: 'Shot in NYC',
                             cardIcon: 'red-camera-01.jpg',
                             backgroundImage: 'irregardless-love-01.jpg',
                             cardShadowColor: Colors.blueAccent,
                             myRoleDescription: 'Director, Writer, Producer',
-                            synopsisDescription: 'I spend my spare time creating short narratives that consist mostly of silly fictional stories and fun times. For a few of the films, I usually bring together crews of 3-20 folks, with 1 to 40 actors.',
+                            synopsisDescription: 'I spend my spare time creating short narratives that consist mostly of silly fictional stories and fun times. I usually bring together crews of 3-20 folks, with 1 to 40 actors.',
                             mediumDescription: 'Film',
                             buttonOne: true,
                             buttonOneTitle: 'Watch my demo reel',
