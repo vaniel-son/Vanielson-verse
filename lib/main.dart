@@ -39,7 +39,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   buttonAction(){
-    print('tab');
+    print('tap2');
+  }
+
+  buttonLinkedIn(){
+    //html.window.open('https://www.linkedin.com/in/van-nguyen-5ba94214/', 'new tab');
+    print('tap3');
   }
 
   @override
@@ -59,14 +64,14 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Container(
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('images/cloud_house_04.jpg'),
+                    image: AssetImage('assets/images/cloud_house_04.jpg'),
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
             ),
             Container(
-              color: primaryBackgroundColor2.withOpacity(.9),
+              color: primaryBackgroundColor2.withOpacity(.7),
             ),
             SizedBox(
               width: (MediaQuery.of(context).size.width),
@@ -74,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: SingleChildScrollView(
                 child: Center(
                   child: SizedBox(
-                    width: 450,
+                    width: 425,
                     child: Column(
                       // mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -105,32 +110,32 @@ class _MyHomePageState extends State<MyHomePage> {
                         const SizedBox(height:32),
 
                         /// Buttons
-                        PrimaryButton(title: 'LinkedIn', onPressAction: buttonAction),
+                        const PrimaryButtonOpenURL(title: 'LinkedIn', url: 'https://www.linkedin.com/in/van-nguyen-5ba94214/'),
                         const SizedBox(height:8),
-                        PrimaryButton(title: 'Github', onPressAction: buttonAction),
+                        const PrimaryButtonOpenURL(title: 'Github', url: 'https://github.com/vaniel-son'),
                         const SizedBox(height:8),
-                        PrimaryButton(title: 'Twitter', onPressAction: buttonAction),
+                        const PrimaryButtonOpenURL(title: 'Twitter', url: 'https://twitter.com/vanielsonnn'),
                         const SizedBox(height: 100),
 
                         /// First portfolio container
                         SizedBox(
                           width: 400,
-                          child: PortfolioCard(title: 'DOJO', subtitle: 'A web3 fitness game',
+                          child: PortfolioCard(title: 'Kumite', subtitle: 'A web3 fitness game',
                             cardIcon: 'kumite-icon-02.jpg',
                             backgroundImage: 'dojo_background_02.jpg',
                             cardShadowColor: Colors.red,
                             myRoleDescription: 'Strategy, Design, Engineering',
-                            synopsisDescription: 'A shogun has hoarded all the food, water, and medical supplies that are starving all the creatures in the kingdom. Keep your symbiotic animal friend alive by defeating physical challenges to win and trade resources to survive.',
+                            synopsisDescription: 'A shogun warlord hoards all the food, water, and medical supplies that starves all the creatures in the kingdom. Keep your symbiotic animal companion alive by defeating physical challenges to win and trade resources to survive.',
                             mediumDescription: 'Android, iOS, web3, Gaming, Fitness',
                             buttonOne: true,
-                            buttonOneTitle: 'Watch Demo Video',
-                            buttonOnePressAction: buttonAction,
+                            buttonOneTitle: 'Visit website',
+                            buttonOneURL: 'https://kumite.my-dojo.com/',
                             buttonTwo: true,
                             buttonTwoTitle: 'Strategy and Design doc',
-                            buttonTwoPressAction: buttonAction,
+                            buttonTwoURL: 'https://vanielsons-organization.gitbook.io/dojo-strategy/kumite-a-web3-fitness-game',
                             buttonThree: true,
                             buttonThreeTitle: 'Virtual Economy Design doc',
-                            buttonThreePressAction: buttonAction,
+                            buttonThreeURL: 'https://vanielsons-organization.gitbook.io/kumite-virtual-economy-design/',
                           ),
                         ),
                         verticalRiser(context: context, multiplier: 1),
@@ -147,7 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             mediumDescription: 'In Development',
                             buttonOne: true,
                             buttonOneTitle: 'Strategy and Design doc',
-                            buttonOnePressAction: buttonAction,
+                            buttonOneURL: 'https://vanielsons-organization.gitbook.io/sages-save-stories-for-eternity/',
                           ),
                         ),
 
@@ -162,11 +167,11 @@ class _MyHomePageState extends State<MyHomePage> {
                             synopsisDescription: '\$70M cycling group fitness game with 40+ bikes, a 20 foot screen, and pits the players in free for all and team games. SXSW Cannes winning xp. 70+ locations worldwide',
                             mediumDescription: 'Physical experience, fitness, .NET, Node',
                             buttonOne: true,
-                            buttonOneTitle: 'Watch Demo Video',
-                            buttonOnePressAction: buttonAction,
+                            buttonOneTitle: 'Watch Sizzle Video',
+                            buttonOneURL: 'https://vimeo.com/207492328',
                             buttonTwo: true,
                             buttonTwoTitle: 'Strategy and Design doc',
-                            buttonTwoPressAction: buttonAction,
+                            buttonTwoURL: 'https://vanielsons-organization.gitbook.io/pursuit-indoor-cycling-game/',
                           ),
                         ),
                         verticalRiser(context: context, multiplier: 1),
@@ -183,7 +188,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             mediumDescription: 'Bluetooth, iOS, Physical experience, Security',
                             buttonOne: true,
                             buttonOneTitle: 'Strategy and Design Doc',
-                            buttonOnePressAction: buttonAction,
+                            buttonOneURL: 'https://vanielsons-organization.gitbook.io/touchless-check-in/',
                           ),
                         ),
                         verticalRiser(context: context, multiplier: 1),
@@ -200,7 +205,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             mediumDescription: 'iOS, Salesforce',
                             buttonOne: true,
                             buttonOneTitle: 'Strategy and Design Doc',
-                            buttonOnePressAction: buttonAction,
+                            buttonOneURL: 'https://vanielsons-organization.gitbook.io/luxury-hospitality-service/',
                           ),
                         ),
                         verticalRiser(context: context, multiplier: 1),
@@ -217,7 +222,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             mediumDescription: 'Self guided walking tour, Telegram bot, physical experience',
                             buttonOne: true,
                             buttonOneTitle: 'Watch video of the experience',
-                            buttonOnePressAction: buttonAction,
+                            buttonOneURL: 'https://vimeo.com/454516305',
                           ),
                         ),
                         verticalRiser(context: context, multiplier: 1),
@@ -234,10 +239,10 @@ class _MyHomePageState extends State<MyHomePage> {
                             mediumDescription: 'Film',
                             buttonOne: true,
                             buttonOneTitle: 'Watch my demo reel',
-                            buttonOnePressAction: buttonAction,
+                            buttonOneURL: 'https://vimeo.com/74595325',
                             buttonTwo: true,
                             buttonTwoTitle: 'Watch Irregardless Love',
-                            buttonTwoPressAction: buttonAction,
+                            buttonTwoURL: 'https://vimeo.com/60785065',
                           ),
                         ),
                         verticalRiser(context: context, multiplier: 1),

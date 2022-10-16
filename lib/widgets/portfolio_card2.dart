@@ -13,13 +13,13 @@ class PortfolioCard2 extends StatelessWidget {
     this.mediumDescription = 'medium',
     this.buttonOne = false,
     this.buttonOneTitle = 'title',
-    this.buttonOnePressAction,
+    this.buttonOneURL = '#',
     this.buttonTwo = false,
     this.buttonTwoTitle = 'title',
-    this.buttonTwoPressAction,
+    this.buttonTwoURL = '#',
     this.buttonThree = false,
     this.buttonThreeTitle = 'title',
-    this.buttonThreePressAction,
+    this.buttonThreeURL = '#',
     this.cardIcon = 'vanielson_mask_01.jpg',
     this.backgroundImage = 'dojo_background_02.jpg',
 
@@ -33,13 +33,13 @@ class PortfolioCard2 extends StatelessWidget {
   final String mediumDescription;
   final bool buttonOne;
   final String buttonOneTitle;
-  final dynamic buttonOnePressAction; // a function
+  final String buttonOneURL; // a function
   final bool buttonTwo;
   final String buttonTwoTitle;
-  final dynamic buttonTwoPressAction; // a function
+  final String buttonTwoURL; // a function
   final bool buttonThree;
   final String buttonThreeTitle;
-  final dynamic buttonThreePressAction; // a function;
+  final String buttonThreeURL; // a function;
   final String cardIcon;
   final String backgroundImage;
 
@@ -183,17 +183,17 @@ class PortfolioCard2 extends StatelessWidget {
                   verticalRiser(context: context, multiplier: 1),
                   Visibility(
                     visible: buttonOne,
-                    child: PrimaryButton(title: buttonOneTitle, onPressAction: buttonOnePressAction),
+                    child: PrimaryButtonOpenURL(title: buttonOneTitle, url: buttonOneURL),
                   ),
                   verticalRiser(context: context, multiplier: 1),
                   Visibility(
                     visible: buttonTwo,
-                    child: PrimaryButton(title: buttonTwoTitle, onPressAction: buttonTwoPressAction),
+                    child: PrimaryButtonOpenURL(title: buttonTwoTitle, url: buttonTwoURL),
                   ),
                   verticalRiser(context: context, multiplier: 1),
                   Visibility(
                     visible: buttonThree,
-                    child: PrimaryButton(title: buttonThreeTitle, onPressAction: buttonThreePressAction),
+                    child: PrimaryButtonOpenURL(title: buttonThreeTitle, url: buttonThreeURL),
                   ),
                 ],
               ),

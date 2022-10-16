@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'dart:html' as html;
 
-class PrimaryButton extends StatelessWidget {
-  const PrimaryButton({Key? key, this.title = 'title', this.onPressAction}) : super(key: key);
+class PrimaryButtonOpenURL extends StatelessWidget {
+  const PrimaryButtonOpenURL({Key? key, this.title = 'title', this.url = 'www.vanielson.com'}) : super(key: key);
 
   final String title;
-  final dynamic onPressAction;
+  final String url;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,9 @@ class PrimaryButton extends StatelessWidget {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
         ),
         onPressed: () {
-          print('tap');
+          //onPressAction();
+          html.window.open(url, 'new tab');
+          print('tap2');
         },
         child: Text(title),
       ),

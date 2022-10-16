@@ -13,13 +13,13 @@ class PortfolioCard extends StatelessWidget {
     this.mediumDescription = 'medium',
     this.buttonOne = false,
     this.buttonOneTitle = 'title',
-    this.buttonOnePressAction,
+    this.buttonOneURL = '#',
     this.buttonTwo = false,
     this.buttonTwoTitle = 'title',
-    this.buttonTwoPressAction,
+    this.buttonTwoURL = '#',
     this.buttonThree = false,
     this.buttonThreeTitle = 'title',
-    this.buttonThreePressAction,
+    this.buttonThreeURL = '#',
     this.cardIcon = 'vanielson_mask_01.jpg',
     this.backgroundImage = 'dojo_background_02.jpg',
     this.cardShadowColor = Colors.blue,
@@ -34,13 +34,13 @@ class PortfolioCard extends StatelessWidget {
   final String mediumDescription;
   final bool buttonOne;
   final String buttonOneTitle;
-  final dynamic buttonOnePressAction; // a function
+  final String buttonOneURL;
   final bool buttonTwo;
   final String buttonTwoTitle;
-  final dynamic buttonTwoPressAction; // a function
+  final String buttonTwoURL;
   final bool buttonThree;
   final String buttonThreeTitle;
-  final dynamic buttonThreePressAction; // a function;
+  final String buttonThreeURL;
   final String cardIcon;
   final String backgroundImage;
   final Color cardShadowColor;
@@ -108,7 +108,7 @@ class PortfolioCard extends StatelessWidget {
                 visible: buttonOne,
                 child: Column(
                   children: [
-                    PrimaryButton(title: buttonOneTitle, onPressAction: buttonOnePressAction),
+                    PrimaryButtonOpenURL(title: buttonOneTitle, url: buttonOneURL,),
                     verticalRiser(context: context, multiplier: 1),
                   ],
                 ),
@@ -118,7 +118,7 @@ class PortfolioCard extends StatelessWidget {
                 visible: buttonTwo,
                 child: Column(
                   children: [
-                    PrimaryButton(title: buttonTwoTitle, onPressAction: buttonTwoPressAction),
+                    PrimaryButtonOpenURL(title: buttonTwoTitle, url: buttonTwoURL),
                     verticalRiser(context: context, multiplier: 1),
                   ],
                 ),
@@ -128,7 +128,7 @@ class PortfolioCard extends StatelessWidget {
                 visible: buttonThree,
                 child: Column(
                   children: [
-                    PrimaryButton(title: buttonThreeTitle, onPressAction: buttonThreePressAction),
+                    PrimaryButtonOpenURL(title: buttonThreeTitle, url: buttonThreeURL),
                     verticalRiser(context: context, multiplier: 1),
                   ],
                 ),
