@@ -38,15 +38,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  buttonAction(){
-    print('tap2');
-  }
-
-  buttonLinkedIn(){
-    //html.window.open('https://www.linkedin.com/in/van-nguyen-5ba94214/', 'new tab');
-    print('tap3');
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,7 +72,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: SizedBox(
                     width: 425,
                     child: Column(
-                      // mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         const SizedBox(height:48),
@@ -96,14 +86,13 @@ class _MyHomePageState extends State<MyHomePage> {
                           height: 50,
                         ),
                         const SizedBox(height:16),
-                        //const BioCard(description: 'Product strategy, product designer, software engineer, operations, and execution assassin.'),
                         Wrap(
                           children: [
                             Text(
-                                'I\'m a product strategist and designer, software engineer, & an operations and execution assassin.', textAlign: TextAlign.center, style: primaryBodyText01(fontSize: 32, fontStyle: FontStyle.italic),
+                              'I help folks build, manage, and prototype products and experiences.', textAlign: TextAlign.center, style: primaryBodyText01(fontSize: 32, color: Colors.yellow, fontStyle: FontStyle.italic),
                             ),
                             Text(
-                              'I use deez skillz to help folks build and prototype products and experiences.', textAlign: TextAlign.center, style: primaryBodyText01(fontSize: 32, color: Colors.yellow, fontStyle: FontStyle.italic),
+                                'I\'m a product strategist and designer, software engineer, & an operations and execution assassin.', textAlign: TextAlign.center, style: primaryBodyText01(fontSize: 32, fontStyle: FontStyle.italic),
                             ),
                           ],
                         ),
@@ -148,7 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             backgroundImage: 'tree-of-life-blossom-01.jpg',
                             cardShadowColor: Colors.lightBlue,
                             myRoleDescription: 'Strategy, Design, Engineering',
-                            synopsisDescription: 'What if you could know your ancestors from 100+ years ago as well as you knew yourself? What if you could pass this onto your children and theirs for the next 1000 years?',
+                            synopsisDescription: 'What if you could know your ancestors from 100+ years ago as well as you knew yourself? What if you could pass your story to your children and theirs for the next 1000 years?',
                             mediumDescription: 'In Development',
                             buttonOne: true,
                             buttonOneTitle: 'Strategy and Design doc',
