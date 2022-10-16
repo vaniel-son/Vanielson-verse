@@ -22,6 +22,7 @@ class PortfolioCard extends StatelessWidget {
     this.buttonThreePressAction,
     this.cardIcon = 'van_mask_square_large.png',
     this.backgroundImage = 'dojo_background_02.jpg',
+    this.cardShadowColor = Colors.blue,
 
     Key? key,
   }) : super(key: key);
@@ -42,9 +43,10 @@ class PortfolioCard extends StatelessWidget {
   final dynamic buttonThreePressAction; // a function;
   final String cardIcon;
   final String backgroundImage;
+  final Color cardShadowColor;
 
   double determineCardHeight(){
-    double cardHeight = 460.0;
+    double cardHeight = 500.0;
     if (buttonOne) {
       cardHeight = cardHeight;
     }
@@ -68,6 +70,17 @@ class PortfolioCard extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           margin: const EdgeInsets.all(16.0),
           decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: cardShadowColor,
+                blurRadius: 33.0, // soften the shadow
+                spreadRadius: 3.0, //extend the shadow
+                offset: const Offset(
+                  1.0, // Move to right 5  horizontally
+                  5.0, // Move to bottom 5 Vertically
+                ),
+              )
+            ],
             borderRadius: borderRadius1(),
             image: DecorationImage(
               image: AssetImage('images/$backgroundImage'),
@@ -85,6 +98,43 @@ class PortfolioCard extends StatelessWidget {
             borderRadius: borderRadius1(),
             color: onPrimaryBlack.withOpacity(.75),
           ),
+
+            /// Buttons
+            child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              verticalRiser(context: context, multiplier: 1),
+              Visibility(
+                visible: buttonOne,
+                child: Column(
+                  children: [
+                    PrimaryButton(title: buttonOneTitle, onPressAction: buttonOnePressAction),
+                    verticalRiser(context: context, multiplier: 1),
+                  ],
+                ),
+              ),
+              //verticalRiser(context: context, multiplier: 1),
+              Visibility(
+                visible: buttonTwo,
+                child: Column(
+                  children: [
+                    PrimaryButton(title: buttonTwoTitle, onPressAction: buttonTwoPressAction),
+                    verticalRiser(context: context, multiplier: 1),
+                  ],
+                ),
+              ),
+              //verticalRiser(context: context, multiplier: 1),
+              Visibility(
+                visible: buttonThree,
+                child: Column(
+                  children: [
+                    PrimaryButton(title: buttonThreeTitle, onPressAction: buttonThreePressAction),
+                    verticalRiser(context: context, multiplier: 1),
+                  ],
+                ),
+              ),
+            ],
+          )
         ),
         Container(
           width: (MediaQuery.of(context).size.width) * .90,
@@ -198,6 +248,16 @@ class PortfolioCard extends StatelessWidget {
               verticalRiser(context:context, multiplier: 1),
 
               /// Buttons
+
+            ],
+          ),
+        ),
+/*
+        Align(
+          alignment: Alignment.bottomCenter ,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
               verticalRiser(context: context, multiplier: 1),
               Visibility(
                 visible: buttonOne,
@@ -215,7 +275,9 @@ class PortfolioCard extends StatelessWidget {
               ),
             ],
           ),
-        ),
+        )
+*/
+
       ],
     );
   }
