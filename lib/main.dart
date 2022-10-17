@@ -190,7 +190,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             backgroundImage: 'eqx-luxury-01.jpg',
                             cardShadowColor: Colors.deepOrange,
                             myRoleDescription: 'Product manager, user research, service design',
-                            synopsisDescription: 'How might we improve the life of staff so they can spend more one on one time with the members.',
+                            synopsisDescription: 'How might we improve the life of staff so they can spend more one on one time with the members?',
                             mediumDescription: 'iOS, Salesforce',
                             buttonOne: true,
                             buttonOneTitle: 'Strategy and Design Doc',

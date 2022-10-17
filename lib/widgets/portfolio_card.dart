@@ -4,7 +4,7 @@ import 'package:vanielson/style/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:vanielson/widgets/buttons.dart';
 
-class PortfolioCard extends StatelessWidget {
+class PortfolioCard extends StatefulWidget {
   PortfolioCard({
     this.title = 'Portfolio Title',
     this.subtitle = 'subtitle',
@@ -45,19 +45,51 @@ class PortfolioCard extends StatelessWidget {
   final String backgroundImage;
   final Color cardShadowColor;
 
+  @override
+  State<PortfolioCard> createState() => _PortfolioCardState();
+}
+
+class _PortfolioCardState extends State<PortfolioCard> with TickerProviderStateMixin {
   double determineCardHeight(){
     double cardHeight = 500.0;
-    if (buttonOne) {
+    if (widget.buttonOne) {
       cardHeight = cardHeight;
     }
-    if (buttonTwo) {
+    if (widget.buttonTwo) {
       cardHeight = cardHeight + 50;
     }
-    if (buttonThree) {
+    if (widget.buttonThree) {
       cardHeight = cardHeight + 50;
     }
 
     return cardHeight;
+  }
+
+  late AnimationController _animationControllerBlurRadius;
+  late Animation _animationBlurRadius;
+
+  late AnimationController _animationControllerSpreadRadius;
+  late Animation _animationSpreadRadius;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    _animationControllerBlurRadius = AnimationController(vsync:this,duration: const Duration(seconds: 2));
+    _animationControllerBlurRadius.repeat(reverse: true);
+    _animationBlurRadius =  Tween(begin: 20.0,end: 33.0).animate(_animationControllerBlurRadius)..addListener((){
+      setState(() {
+
+      });
+    });
+
+    _animationControllerSpreadRadius = AnimationController(vsync:this,duration: const Duration(seconds: 2));
+    _animationControllerSpreadRadius.repeat(reverse: true);
+    _animationSpreadRadius =  Tween(begin: 3.0,end: 15.0).animate(_animationControllerBlurRadius)..addListener((){
+      setState(() {
+
+      });
+    });
+    super.initState();
   }
 
   @override
@@ -72,9 +104,9 @@ class PortfolioCard extends StatelessWidget {
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
-                color: cardShadowColor,
-                blurRadius: 33.0, // soften the shadow
-                spreadRadius: 3.0, //extend the shadow
+                color: widget.cardShadowColor,
+                blurRadius: _animationBlurRadius.value, // soften the shadow, 33
+                spreadRadius: _animationSpreadRadius.value, //extend the shadow, 3
                 offset: const Offset(
                   1.0, // Move to right 5  horizontally
                   5.0, // Move to bottom 5 Vertically
@@ -83,7 +115,7 @@ class PortfolioCard extends StatelessWidget {
             ],
             borderRadius: borderRadius1(),
             image: DecorationImage(
-              image: AssetImage('assets/images/$backgroundImage'),
+              image: AssetImage('assets/images/${widget.backgroundImage}'),
               fit: BoxFit.cover,
             ),
             //color: surfaceColorTransparent1.withOpacity(0.9),
@@ -105,30 +137,30 @@ class PortfolioCard extends StatelessWidget {
             children: [
               verticalRiser(context: context, multiplier: 1),
               Visibility(
-                visible: buttonOne,
+                visible: widget.buttonOne,
                 child: Column(
                   children: [
-                    PrimaryButtonOpenURL(title: buttonOneTitle, url: buttonOneURL,),
+                    PrimaryButtonOpenURL(title: widget.buttonOneTitle, url: widget.buttonOneURL,),
                     verticalRiser(context: context, multiplier: 1),
                   ],
                 ),
               ),
               //verticalRiser(context: context, multiplier: 1),
               Visibility(
-                visible: buttonTwo,
+                visible: widget.buttonTwo,
                 child: Column(
                   children: [
-                    PrimaryButtonOpenURL(title: buttonTwoTitle, url: buttonTwoURL),
+                    PrimaryButtonOpenURL(title: widget.buttonTwoTitle, url: widget.buttonTwoURL),
                     verticalRiser(context: context, multiplier: 1),
                   ],
                 ),
               ),
               //verticalRiser(context: context, multiplier: 1),
               Visibility(
-                visible: buttonThree,
+                visible: widget.buttonThree,
                 child: Column(
                   children: [
-                    PrimaryButtonOpenURL(title: buttonThreeTitle, url: buttonThreeURL),
+                    PrimaryButtonOpenURL(title: widget.buttonThreeTitle, url: widget.buttonThreeURL),
                     verticalRiser(context: context, multiplier: 1),
                   ],
                 ),
@@ -160,7 +192,7 @@ class PortfolioCard extends StatelessWidget {
                         padding: const EdgeInsets.fromLTRB(0,0,8,0),
                         child: CircleAvatar(
                           radius: 25,
-                          backgroundImage: AssetImage('assets/images/$cardIcon'),
+                          backgroundImage: AssetImage('assets/images/${widget.cardIcon}'),
                         ),
                       ),
                     ],
@@ -170,35 +202,14 @@ class PortfolioCard extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Text(title, style: primaryBodyTextBold01(fontSize: 20), textAlign: TextAlign.start,),
+                          Text(widget.title, style: primaryBodyTextBold01(fontSize: 20), textAlign: TextAlign.start,),
                         ],
                       ),
                       Row(
                         children: [
-                          Text(subtitle, style: primaryBodyText01()),
+                          Text(widget.subtitle, style: primaryBodyText01()),
                         ],
                       ),
-                    ],
-                  ),
-                ],
-              ),
-              verticalRiser(context: context, multiplier: 2),
-
-              /// My Role
-              Column(
-                children: [
-                  const SizedBox(width: 4),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text('MY ROLE', style: primaryBodyTextBold01(fontSize: 10), textAlign: TextAlign.left),
-                    ],
-                  ),
-                  verticalRiser(context:context, multiplier: 0.5),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Flexible(child: Text(myRoleDescription, style: primaryBodyText01(), textAlign: TextAlign.left)),
                     ],
                   ),
                 ],
@@ -219,7 +230,28 @@ class PortfolioCard extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Flexible(child: Text(synopsisDescription, style: primaryBodyText01(), textAlign: TextAlign.left)),
+                      Flexible(child: Text(widget.synopsisDescription, style: primaryBodyText01(), textAlign: TextAlign.left)),
+                    ],
+                  ),
+                ],
+              ),
+              verticalRiser(context: context, multiplier: 2),
+
+              /// My Role
+              Column(
+                children: [
+                  const SizedBox(width: 4),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text('My Role', style: primaryBodyTextBold01(fontSize: 10), textAlign: TextAlign.left),
+                    ],
+                  ),
+                  verticalRiser(context:context, multiplier: 0.5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Flexible(child: Text(widget.myRoleDescription, style: primaryBodyText01(), textAlign: TextAlign.left)),
                     ],
                   ),
                 ],
@@ -240,7 +272,7 @@ class PortfolioCard extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Flexible(child: Text(mediumDescription, style: primaryBodyText01(), textAlign: TextAlign.left)),
+                      Flexible(child: Text(widget.mediumDescription, style: primaryBodyText01(), textAlign: TextAlign.left)),
                     ],
                   ),
                 ],
